@@ -4,24 +4,16 @@
     "start": "umi dev",
     "build": "umi build",
     "test": "umi test",
-    
     "lint": "eslint --ext .js src mock tests",
-    
-    
     "precommit": "lint-staged"
   },
   "dependencies": {
-    
     "dva": "^2.6.0-beta.6",
-    
-    
-    "antd": "^3.19.5",
-    
+    "antd": "^3.21.1",    
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    
     "babel-eslint": "^9.0.0",
     "eslint": "^5.4.0",
     "eslint-config-umi": "^1.4.0",
