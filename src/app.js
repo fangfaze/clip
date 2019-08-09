@@ -6,6 +6,7 @@ export const dva = {
     },
     initialState: {
       products: [{ name: 'dva', id: 1 }, { name: 'antd', id: 2 }],
+      index: {name:"join", age:18},
     },
   },
 };
