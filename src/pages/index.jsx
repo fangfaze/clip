@@ -1,14 +1,34 @@
 import React from 'react'
 import 'antd/dist/antd.css'
+import { connect } from 'dva'
 import style from './index.css'
 import { Button, Layout, Menu, Icon, Modal } from 'antd'
 import Gameplayer from '../components/gamepalyer';
 
 const { Header, Footer, Sider, Content } = Layout
 const { SubMenu, Item } = Menu
-const { confirm } = Modal;
 
-const Main = (props) => {
+const Main = ({ dispatch, trade }) => {
+    const showdiag = (e) => {
+        dispatch({
+            type: 'main/trade',
+            playload: true,
+        })
+    }
+    const hidediag = (e) => {
+        dispatch({
+            type: 'main/trade',
+            playload: false,
+        })
+    }
+
+    const Gameplayer1 = connect((props) => ({}))(Gameplayer)
+    const modal = {
+        visible: trade,
+        title: "Title",
+        onOk: hidediag,
+        onCancel: hidediag,
+    }
     return (
         <Layout className={style.all}>
             <Header theme="light" className={style.header}>
@@ -17,7 +37,7 @@ const Main = (props) => {
                     别针换别墅
                     <Icon type="home" /></span>
                 <div><Button type="danger">重置</Button></div>
-                <div><Button>故事</Button></div>
+                <div><Button onClick={() => showdiag()}>故事</Button></div>
             </Header>
             <Layout  >
                 <Sider theme="dark" className={style.sider}>
@@ -72,24 +92,31 @@ const Main = (props) => {
                 </Sider>
                 <Layout>
                     <Content className={style.board}>
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
-                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer1 onClick={showdiag} />
+                        <Gameplayer1 />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer />
+                        <Gameplayer />
+                        <Gameplayer />
+                        <div className={style.holder}> &nbps;</div>
                     </Content>
                     <Footer className={style.footer}>aaaaaaaaaaaaaaaaaaaa</Footer>
                 </Layout>
             </Layout>
+
+            <Modal {...modal} >
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Modal>
         </Layout>
     )
 }
+const mapping = ({ main }) => {
+    return { trade: main.showTrade }
+}
 
-
-export default Main;
+export default connect(mapping)(Main);

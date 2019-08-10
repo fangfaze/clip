@@ -1,13 +1,10 @@
 import style from './gameplayer.css'
 
 
-
-const Gameplayer = () => {
+const Gameplayer = ({onClick, id}) => {
     return (
-        <div>
-            <div className={style.bg}>
-                <div className={style.item}>
-                </div>
+        <div className={style.bg} onClick ={onClick}>
+            <div className={style.item}>
             </div>
         </div>
     )

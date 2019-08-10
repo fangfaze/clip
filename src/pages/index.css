@@ -12,7 +12,7 @@
 }
 
 .header>span>i {
-  color: #00ff00;
+  color: #11d15b;
   font-size: 30px;
   border-width: 100px;
 }
@@ -30,11 +30,16 @@
 
 .board {
   overflow: auto;
-  background: #00ff00;
+  background: #cad9f0;
   height: calc(100vh - 130px);
   left: 200px;
 }
 .board>div{
-
   float: left;
+}
+
+.holder{
+  height: 200px;
+  background: #2c16ac;
+  visibility:hidden;
 }
