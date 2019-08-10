@@ -19,29 +19,22 @@
 
 .header>div {
   float: right;
+  margin-left: 10px;
 }
 
 .sider {
   overflow: auto;
   height: calc(100vh - 60px);
-  position: fixed;
   left: 0;
-}
-
-.layout {
-  padding-left: 200px
 }
 
 .board {
   overflow: auto;
+  background: #00ff00;
   height: calc(100vh - 130px);
   left: 200px;
 }
+.board>div{
 
-.board>div {
-  color: blue;
-  width: 100%;
-}
-.footer{
-  text-align: center
+  float: left;
 }

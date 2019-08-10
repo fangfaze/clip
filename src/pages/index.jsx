@@ -1,12 +1,14 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import style from './index.css'
-import { Button, Layout, Menu, Icon } from 'antd'
+import { Button, Layout, Menu, Icon, Modal } from 'antd'
+import Gameplayer from '../components/gamepalyer';
 
 const { Header, Footer, Sider, Content } = Layout
 const { SubMenu, Item } = Menu
+const { confirm } = Modal;
 
-export default (props) => {
+const Main = (props) => {
     return (
         <Layout className={style.all}>
             <Header theme="light" className={style.header}>
@@ -14,11 +16,12 @@ export default (props) => {
                     <Icon type="paper-clip" />
                     别针换别墅
                     <Icon type="home" /></span>
-                <div><Button>重置</Button></div>
+                <div><Button type="danger">重置</Button></div>
+                <div><Button>故事</Button></div>
             </Header>
             <Layout  >
                 <Sider theme="dark" className={style.sider}>
-                    <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
+                    <Menu theme="light" defaultSelectedKeys={['1']} mode="inline"  >
                         <SubMenu title="章节一">
                             <Item key={1}>菜单11</Item>
                             <Item key={2}>菜单2</Item>
@@ -67,16 +70,26 @@ export default (props) => {
                         </SubMenu>
                     </Menu>
                 </Sider>
-            </Layout>
-            <Layout className={style.layout}>
-                <Content className={style.board}>
-                    <div>1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1</div>
-                    <div>1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1</div>
-                    <div>1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1</div>
-                    <div>1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1<br />1</div>
-                </Content>
-                <Footer className={style.footer}>aaaaaaaaaaaaaaaaaaaa</Footer>
+                <Layout>
+                    <Content className={style.board}>
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                        <Gameplayer onClick={props.showdiag} />
+                    </Content>
+                    <Footer className={style.footer}>aaaaaaaaaaaaaaaaaaaa</Footer>
+                </Layout>
             </Layout>
         </Layout>
     )
 }
+
+
+export default Main;

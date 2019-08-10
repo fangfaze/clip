@@ -1,0 +1,21 @@
+.bg {
+  float: none;
+  margin: 50px 25px;
+  width: 150px;
+  height: 150px;
+  background: url(../assets/bg.png) no-repeat center 0;
+  background-size: cover;
+  cursor:pointer;
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  left: 100px;
+  bottom: -100px;
+  width: 80px;
+  height: 80px;
+  background: url(../assets/item.png) no-repeat center 0;
+  background-size: cover;
+
+}
