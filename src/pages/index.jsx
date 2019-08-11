@@ -3,7 +3,8 @@ import 'antd/dist/antd.css'
 import { connect } from 'dva'
 import style from './index.css'
 import { Button, Layout, Menu, Icon, Modal } from 'antd'
-import Gameplayer from '../components/gamepalyer';
+import Gameplayer from '../components/gamepalyer'
+import Tradediag from '../components/tradediag'
 
 const { Header, Footer, Sider, Content } = Layout
 const { SubMenu, Item } = Menu
@@ -25,16 +26,18 @@ const Main = ({ dispatch, trade }) => {
     const Gameplayer1 = connect((props) => ({}))(Gameplayer)
     const modal = {
         visible: trade,
-        title: "Title",
         onOk: hidediag,
         onCancel: hidediag,
+        title: null,
+        footer: null,
+        width: 800,
     }
     return (
         <Layout className={style.all}>
             <Header theme="light" className={style.header}>
                 <span>
                     <Icon type="paper-clip" />
-                    别针换别墅
+                    &nbsp;别针换别墅 &nbsp;
                     <Icon type="home" /></span>
                 <div><Button type="danger">重置</Button></div>
                 <div><Button onClick={() => showdiag()}>故事</Button></div>
@@ -92,12 +95,18 @@ const Main = ({ dispatch, trade }) => {
                 </Sider>
                 <Layout>
                     <Content className={style.board}>
-                        <Gameplayer1 onClick={showdiag} />
-                        <Gameplayer1 />
                         <Gameplayer onClick={showdiag} />
-                        <Gameplayer />
-                        <Gameplayer />
-                        <Gameplayer />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
+                        <Gameplayer onClick={showdiag} />
                         <div className={style.holder}> &nbps;</div>
                     </Content>
                     <Footer className={style.footer}>aaaaaaaaaaaaaaaaaaaa</Footer>
@@ -105,12 +114,7 @@ const Main = ({ dispatch, trade }) => {
             </Layout>
 
             <Modal {...modal} >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <Tradediag></Tradediag>
             </Modal>
         </Layout>
     )
