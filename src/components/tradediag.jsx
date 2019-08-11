@@ -20,51 +20,69 @@ const Diaglog = () => {
 class Trade extends React.Component {
 
     state = {
-        change: true,
-        moment: null
+        changing: false,
     }
     onClick = () => {
-        this.setState({ change: false, moment: null })
+        this.setState({ changing: true })
     }
     onFinish = (e) => {
-        console.log(e)
         if ("onComplete" === e.mode) {
-            this.setState({ change: true, moment: 1 })
+            this.setState({ changing: false, })
         }
     }
 
     render() {
         const anime1 = {
             bezier: {
-                type: 'soft',
+                type: 'thru',
                 autoRotate: false,
                 vars: [
                     { x: 0, y: 0 },
                     { x: 150, y: 150 },
                     { x: 300, y: 0 },
                 ],
-            }
+            },
         }
         const anime2 = {
             bezier: {
-                type: 'soft',
+                type: 'thru',
                 autoRotate: false,
                 vars: [
                     { x: 0, y: 0 },
                     { x: -150, y: -150 },
                     { x: -300, y: 0 },
                 ],
+            },
+        }
+
+        const Tradeanime1 = () => {
+            if (this.state.changing) {
+                return (
+                    <TweenOne animation={anime1} onChange={this.onFinish}>
+                        <div className={style.trade1}></div>
+                    </TweenOne>
+                )
+            } else {
+                return (<div className={style.trade1}></div>)
             }
         }
+        const Tradeanime2 = () => {
+            if (this.state.changing) {
+                return (
+                    <TweenOne animation={anime2} >
+                        <div className={style.trade2}></div>
+                    </TweenOne>
+                )
+            } else {
+                return (<div className={style.trade2}></div>)
+            }
+        }
+
         return (
             <div className={style.tradebg}>
-                <TweenOne animation={anime1} paused={this.state.change} moment={this.state.moment} onChange={this.onFinish}>
-                    <div className={style.trade1}></div>
-                </TweenOne>
-                <Button type='primary' onClick={this.onClick}><Icon type='sync'></Icon>交换</Button>
-                <TweenOne animation={anime2} paused={this.state.change} moment={this.state.moment}>
-                    <div className={style.trade2}></div>
-                </TweenOne>
+                <Tradeanime1/>
+                <Button type='primary' disabled = {this.state.changing} onClick={this.onClick}><Icon type='sync'></Icon>交换</Button>
+                <Tradeanime2/>
             </div>
         )
     }
