@@ -15,7 +15,7 @@
   background-size: cover;
   cursor: pointer;
   border: 1px solid black;
-  margin: 20px ;
+  margin: 20px;
   border-radius: 5px;
   padding: 10px;
 }
@@ -24,7 +24,7 @@
   width: calc(100% - 200px);
   min-height: 80px;
   position: relative;
-  margin: 20px ;
+  margin: 20px;
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
@@ -52,25 +52,37 @@
   border-color: transparent #FFF transparent transparent;
 }
 
+.tradebg {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.tradebg>button, .tradebg>div {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 34px;
+
+}
+
 .trade1 {
-  float :right;
+  text-align: center;
+  font-size: 0;
   width: 80px;
   height: 80px;
   background: url(../assets/item.png) no-repeat center 0;
   background-size: cover;
-  cursor: pointer;
   border: 1px solid black;
-  margin: 20px ;
   border-radius: 5px;
 }
+
 .trade2 {
-  float: left;
+  text-align: center;
+  font-size: 0;
   width: 80px;
   height: 80px;
   background: url(../assets/item1.png) no-repeat center 0;
   background-size: cover;
-  cursor: pointer;
   border: 1px solid black;
-  margin: 20px ;
   border-radius: 5px;
 }
