@@ -3,8 +3,6 @@ import { Button, Icon } from 'antd'
 import React from 'react'
 
 import TweenOne from 'rc-tween-one';
-import BezierPlugin from 'rc-tween-one/lib/plugin/BezierPlugin';
-TweenOne.plugins.push(BezierPlugin);
 
 const Diaglog = () => {
     const text = '我对你的东西没有什么兴趣.'
@@ -26,34 +24,23 @@ class Trade extends React.Component {
         this.setState({ changing: true })
     }
     onFinish = (e) => {
-        if ("onComplete" === e.mode) {
+        if ("onTimelineComplete" === e.timelineMode) {
             this.setState({ changing: false, })
         }
     }
 
     render() {
-        const anime1 = {
-            bezier: {
-                type: 'thru',
-                autoRotate: false,
-                vars: [
-                    { x: 0, y: 0 },
-                    { x: 150, y: 150 },
-                    { x: 300, y: 0 },
-                ],
-            },
-        }
-        const anime2 = {
-            bezier: {
-                type: 'thru',
-                autoRotate: false,
-                vars: [
-                    { x: 0, y: 0 },
-                    { x: -150, y: -150 },
-                    { x: -300, y: 0 },
-                ],
-            },
-        }
+        const anime1 = [
+            { y: -80 },
+            { x: 300 },
+            { y: 0 },
+        ]
+
+        const anime2 = [
+            { y: 80 },
+            { x: -300 },
+            { y: 0 },
+        ]
 
         const Tradeanime1 = () => {
             if (this.state.changing) {
@@ -80,9 +67,9 @@ class Trade extends React.Component {
 
         return (
             <div className={style.tradebg}>
-                <Tradeanime1/>
-                <Button type='primary' disabled = {this.state.changing} onClick={this.onClick}><Icon type='sync'></Icon>交换</Button>
-                <Tradeanime2/>
+                <Tradeanime1 />
+                <Button type='primary' disabled={this.state.changing} onClick={this.onClick}><Icon type='sync'></Icon>交换</Button>
+                <Tradeanime2 />
             </div>
         )
     }

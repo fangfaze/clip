@@ -109,7 +109,13 @@ const Main = ({ dispatch, trade }) => {
                         <Gameplayer onClick={showdiag} />
                         <div className={style.holder}> &nbps;</div>
                     </Content>
-                    <Footer className={style.footer}>aaaaaaaaaaaaaaaaaaaa</Footer>
+                    <Footer className={style.footer}>
+                        <div className={style.player}>
+                        </div>
+                        <div className={style.item}>
+                        </div>
+                    </Footer>
+
                 </Layout>
             </Layout>
 
