@@ -1,7 +1,6 @@
 import style from './tradediag.css'
-import { Button, Icon } from 'antd'
+import { Button, Icon, Popover } from 'antd'
 import React from 'react'
-
 import TweenOne from 'rc-tween-one';
 
 const Diaglog = () => {
@@ -41,7 +40,17 @@ class Trade extends React.Component {
             { x: -300 },
             { y: 0 },
         ]
-
+        const content1= (
+            <div>
+              <p>一个天天飞在天上打妖怪的巫女的发卡,据说是她所有魔力的来源</p>
+            </div>
+          );
+          const content2= (
+            <div>
+              <p>一个明星棒棒糖,曾经在周星星电影&lt;功夫&gt;中本色出演,塑造出经典的银屏形象</p>
+            </div>
+          );
+    
         const Tradeanime1 = () => {
             if (this.state.changing) {
                 return (
@@ -50,7 +59,13 @@ class Trade extends React.Component {
                     </TweenOne>
                 )
             } else {
-                return (<div className={style.trade1}></div>)
+                return (
+
+                    <Popover placement="top" content={content1} title="发卡">
+                        <div className={style.trade1}></div>
+                    </Popover>
+
+                )
             }
         }
         const Tradeanime2 = () => {
@@ -61,7 +76,11 @@ class Trade extends React.Component {
                     </TweenOne>
                 )
             } else {
-                return (<div className={style.trade2}></div>)
+                return (
+                    <Popover placement="top" content={content2} title="棒棒糖">
+                        <div className={style.trade2}></div>
+                    </Popover>
+                )
             }
         }
 

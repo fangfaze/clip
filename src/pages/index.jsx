@@ -2,7 +2,7 @@ import React from 'react'
 import 'antd/dist/antd.css'
 import { connect } from 'dva'
 import style from './index.css'
-import { Button, Layout, Menu, Icon, Modal } from 'antd'
+import { Button, Layout, Menu, Icon, Modal, Popover } from 'antd'
 import Gameplayer from '../components/gamepalyer'
 import Tradediag from '../components/tradediag'
 
@@ -23,7 +23,6 @@ const Main = ({ dispatch, trade }) => {
         })
     }
 
-    const Gameplayer1 = connect((props) => ({}))(Gameplayer)
     const modal = {
         visible: trade,
         onOk: hidediag,
@@ -32,6 +31,13 @@ const Main = ({ dispatch, trade }) => {
         footer: null,
         width: 800,
     }
+
+    const content = (
+        <div>
+          <p>一个明星棒棒糖,曾经在周星星电影&lt;功夫&gt;中本色出演,塑造出经典的银屏形象</p>
+        </div>
+      );
+      
     return (
         <Layout className={style.all}>
             <Header theme="light" className={style.header}>
@@ -112,8 +118,10 @@ const Main = ({ dispatch, trade }) => {
                     <Footer className={style.footer}>
                         <div className={style.player}>
                         </div>
-                        <div className={style.item}>
-                        </div>
+                        <Popover placement="leftBottom" content={content} title="棒棒糖">
+                            <div className={style.item}>
+                            </div>
+                        </Popover>
                     </Footer>
 
                 </Layout>

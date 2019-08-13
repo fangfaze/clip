@@ -31,7 +31,7 @@
 .board {
   overflow: auto;
   background: #cad9f0;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 210px);
   left: 200px;
 }
 
@@ -49,7 +49,7 @@
   background: #e8e99b;
   position: relative;
   width: 100%;
-  height: 20px;
+  height: 100px;
   text-align: end;
 }
 
@@ -69,8 +69,8 @@
   font-size: 0;
   width: 80px;
   height: 80px;
-  bottom: 5px;
-  right: 20px;
+  bottom: 10px;
+  right: 180px;
   background: url(../assets/item1.png) no-repeat center 0;
   background-size: cover;
   border: 1px solid black;
