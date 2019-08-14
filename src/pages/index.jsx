@@ -5,20 +5,31 @@ import style from './index.css'
 import { Button, Layout, Menu, Icon, Modal, Popover } from 'antd'
 import Gameplayer from '../components/gamepalyer'
 import Tradediag from '../components/tradediag'
+import StoryDiaglog from '../components/storydiag'
 
 const { Header, Footer, Sider, Content } = Layout
 const { SubMenu, Item } = Menu
 
-const Main = ({ dispatch, trade }) => {
+const Main = ({ dispatch, trade , story}) => {
     const showdiag = (e) => {
         dispatch({
             type: 'main/trade',
+            playload: true,
+        })
+    }    
+    const showstory = (e) => {
+        dispatch({
+            type: 'main/story',
             playload: true,
         })
     }
     const hidediag = (e) => {
         dispatch({
             type: 'main/trade',
+            playload: false,
+        })
+        dispatch({
+            type: 'main/story',
             playload: false,
         })
     }
@@ -32,6 +43,14 @@ const Main = ({ dispatch, trade }) => {
         width: 800,
     }
 
+    const storymodal = {
+        visible: story,
+        onOk: hidediag,
+        onCancel: hidediag,
+        title: null,
+        footer: null,
+        width: 800,
+    }
     const content = (
         <div>
           <p>一个明星棒棒糖,曾经在周星星电影&lt;功夫&gt;中本色出演,塑造出经典的银屏形象</p>
@@ -46,7 +65,7 @@ const Main = ({ dispatch, trade }) => {
                     &nbsp;别针换别墅 &nbsp;
                     <Icon type="home" /></span>
                 <div><Button type="danger">重置</Button></div>
-                <div><Button onClick={() => showdiag()}>故事</Button></div>
+                <div><Button onClick={() => showstory()}>故事</Button></div>
             </Header>
             <Layout  >
                 <Sider theme="dark" className={style.sider}>
@@ -130,11 +149,15 @@ const Main = ({ dispatch, trade }) => {
             <Modal {...modal} >
                 <Tradediag></Tradediag>
             </Modal>
+
+            <Modal {...storymodal}>
+                <StoryDiaglog></StoryDiaglog>
+            </Modal>
         </Layout>
     )
 }
 const mapping = ({ main }) => {
-    return { trade: main.showTrade }
+    return { trade: main.showTrade, story: main.showStory }
 }
 
 export default connect(mapping)(Main);

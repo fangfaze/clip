@@ -1,7 +1,7 @@
 import style from './tradediag.css'
 import { Button, Icon, Popover } from 'antd'
 import React from 'react'
-import TweenOne from 'rc-tween-one';
+import TweenOne from 'rc-tween-one'
 
 const Diaglog = () => {
     const text = '我对你的东西没有什么兴趣.'

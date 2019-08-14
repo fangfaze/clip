@@ -1,11 +1,13 @@
 export default {
     namespage: "main",
-    state: { showTrade: false, },
+    state: { showTrade: false, showStory: false},
     reducers: {
         trade(state, action) {
-            console.log(state)
             return { ...state, showTrade: action.playload }
         },
+        story(state, action){
+            return {...state, showStory: action.playload}
+        }
     }
 
 }

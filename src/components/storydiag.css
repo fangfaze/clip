@@ -1,0 +1,50 @@
+.top{}
+
+.top>div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.bg {
+    width: 120px;
+    height: 120px;
+    background: url(../assets/bg.png) no-repeat center 0;
+    background-size: cover;
+    cursor: pointer;
+    border: 1px solid black;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.diag {
+    width: calc(100% - 200px);
+    min-height: 80px;
+    position: relative;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.pop1, .pop2 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 10px;
+    display: block;
+    border-style: dashed solid dashed dashed;
+}
+
+.pop1 {
+    top: 20px;
+    left: -20px;
+    border-color: transparent #000 transparent transparent;
+}
+
+.pop2 {
+    top: 20px;
+    left: -19px;
+    border-color: transparent #FFF transparent transparent;
+}
