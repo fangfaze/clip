@@ -1,4 +1,7 @@
-.top{}
+.top1>div {
+    display: block;
+    float: left;
+}
 
 .top>div {
     display: inline-block;
@@ -6,45 +9,71 @@
 }
 
 .bg {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     background: url(../assets/bg.png) no-repeat center 0;
     background-size: cover;
     cursor: pointer;
     border: 1px solid black;
-    margin: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bgdiagplayer {
+    width: 60px;
+    height: 60px;
+    background: url(../assets/player.png) no-repeat center 0;
+    background-size: cover;
+    cursor: pointer;
+    border: 1px solid black;
+    margin: 10px;
     border-radius: 5px;
     padding: 10px;
 }
 
 .diag {
-    width: calc(100% - 200px);
-    min-height: 80px;
+    max-width: calc(100% - 200px);
+    min-height: 30px;
     position: relative;
-    margin: 20px;
+    margin: 10px;
+    background: #f0dac1;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 10px;
+    padding: 6px;
+    direction: ltr
 }
 
-.pop1, .pop2 {
+.pop1, .pop2, .pop1p, .pop2p {
     position: absolute;
     width: 0;
     height: 0;
     overflow: hidden;
     border-width: 10px;
     display: block;
-    border-style: dashed solid dashed dashed;
+    top: 15px;
 }
 
 .pop1 {
-    top: 20px;
     left: -20px;
+    border-style: dashed solid dashed dashed;
     border-color: transparent #000 transparent transparent;
 }
 
 .pop2 {
-    top: 20px;
     left: -19px;
-    border-color: transparent #FFF transparent transparent;
+    border-style: dashed solid dashed dashed;
+    border-color: transparent #f0dac1 transparent transparent;
+}
+
+.pop1p {
+    right: -20px;
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent  #000 ;
+}
+
+.pop2p {
+    right: -19px;
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent #f0dac1 ;
 }
